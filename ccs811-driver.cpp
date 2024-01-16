@@ -11,6 +11,7 @@ static uint8_t ADDRESS = 0x5A;
 const uint8_t REG_STATUS = 0x00;
 const uint8_t REG_HW_ID = 0x20;
 
+
 int main() {
 
     bi_decl(bi_program_description("This is a test binary."));

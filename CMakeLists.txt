@@ -5,7 +5,7 @@ set(CMAKE_C_STANDARD 11)
 set(CMAKE_CXX_STANDARD 17)
 pico_sdk_init()
 add_executable(ccs811-driver
-    ccs811-driver.c
+    ccs811-driver.cpp
 )
 pico_enable_stdio_usb(ccs811-driver 1)
 pico_add_extra_outputs(ccs811-driver) 
