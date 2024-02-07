@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include "pico/stdlib.h"
-#include "hardware/gpio.h"
 #include "pico/binary_info.h"
 #include "hardware/i2c.h"
+#include "gpio_rsp_pico.h"
 
 const uint8_t LED_PIN = 25;
 const uint8_t NWAKE_PIN = 0;
@@ -46,49 +46,6 @@ I2c_rsp_pico::~I2c_rsp_pico()
 {
 }
 
-
-
-class Gpio_rsp_pico
-{
-private:
-    const uint8_t pin_number;
-    const uint8_t direction;
-    static const uint8_t high = 1 ;
-    static const uint8_t low = 0 ;
-    void init_gpio(uint8_t pin_number, uint8_t direction);
-public:
-    Gpio_rsp_pico(uint8_t pin_number, uint8_t direction);
-    ~Gpio_rsp_pico();
-    void set_high();
-    void set_low();
-};
-
-void Gpio_rsp_pico::init_gpio(uint8_t pin_number, uint8_t direction)
-{
-    gpio_init(pin_number);
-    gpio_set_dir(pin_number, direction);
-}
-
-Gpio_rsp_pico::Gpio_rsp_pico(uint8_t pin_number, uint8_t direction):
-pin_number(pin_number),
-direction(direction)
-{
-    init_gpio(this->pin_number,this->direction);
-}
-
-Gpio_rsp_pico::~Gpio_rsp_pico()
-{
-}
-
-void Gpio_rsp_pico::set_high()
-{
-    gpio_put(this->pin_number,high);
-}
-
-void Gpio_rsp_pico::set_low()
-{
-    gpio_put(this->pin_number,low);
-}
 
 
 int main() {
