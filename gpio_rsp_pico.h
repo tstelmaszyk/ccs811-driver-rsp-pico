@@ -2,7 +2,7 @@
 #define _gpio_rsp_pico_h
 
 #include <stdio.h>
- #include <stdint.h>
+#include <stdint.h>
 #include "pico/stdlib.h"
 #include "hardware/gpio.h"
 
